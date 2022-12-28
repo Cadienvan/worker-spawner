@@ -10,6 +10,8 @@ npm install worker-spawner
 
 # How can I use it?
 
+You can find a simple example in the `examples` folder.
+
 ## Basic usage
 
 My script:
