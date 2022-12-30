@@ -1,4 +1,4 @@
 export const defaultOptions = {
   unref: false,
-  timeout: 0,
-}
+  timeout: 0
+};
