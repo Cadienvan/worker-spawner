@@ -5,7 +5,8 @@ import { Options } from './models';
 export function workerThreadExecute<T>(
   workerPathOrInstance: string | Worker,
   workerData: unknown = undefined,
-  _options: Partial<Options> = {}
+  _options: Partial<Options> = {},
+  workerOptions: WorkerOptions = {}
 ): Promise<T> {
   return new Promise((resolve, reject) => {
     const options: Options = {
@@ -15,7 +16,8 @@ export function workerThreadExecute<T>(
     let worker: string | Worker;
     if (typeof workerPathOrInstance === 'string') {
       worker = new Worker(workerPathOrInstance, {
-        workerData
+        workerData,
+        ...workerOptions
       });
     } else {
       worker = workerPathOrInstance;
