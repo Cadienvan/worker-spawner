@@ -55,10 +55,14 @@ parentPort.on('message', (input) => {
 # API
 
 The workerThreadExecute function takes two arguments:
-- `workerPathOrInstance`: Either a path to a worker file or a preloaded worker instance.  
-- `input`: The input to be passed to the worker. Please be aware the input will work differently depending on the type of the worker.  
+- `workerPathOrInstance`(_required_): Either a path to a worker file or a preloaded worker instance.  
+- `workerData`(_optional_): The input to be passed to the worker. Please be aware the input will work differently depending on the type of the worker.  
   - If the worker is a preloaded worker, the input will be passed to the worker as a message.  
   - If the worker is a path to a worker file, the input will be passed to the worker as a parameter available using the `workerData` property of the `worker_threads` module.
+- `options`(_optional_): An object containing the following properties:
+  - `unref`: If set to `true`, the worker thread will be unref'd. Defaults to `false`.  
+  - `timeout`: The timeout in milliseconds after which the worker will be terminated. Defaults to `0` (no timeout).
+- `workerOptions`(_optional_): Additional worker options respecting the [WorkerOptions Interface](https://nodejs.org/api/worker_threads.html#new-workerfilename-options)
 
 
 # Tests
