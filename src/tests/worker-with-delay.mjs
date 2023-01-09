@@ -7,5 +7,5 @@ if (parentPort) {
   }
   parentPort.on('message', (payload) => {
     parentPort.postMessage(payload * 2);
-  })
+  });
 }

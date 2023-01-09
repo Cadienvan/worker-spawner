@@ -14,24 +14,22 @@ it('should work without a payload', async () => {
   const result = await workerThreadExecute(
     `${process.cwd()}/src/tests/worker-sample.mjs`,
     undefined,
-    { unref: true, timeout: 500  }
+    { unref: true, timeout: 500 }
   );
-  
+
   expect(result).toBeNaN();
 
-  const worker = new Worker(
-    `${process.cwd()}/src/tests/worker-sample.mjs`
-  );
+  const worker = new Worker(`${process.cwd()}/src/tests/worker-sample.mjs`);
   worker.unref();
-  const resultWithPreload = await workerThreadExecute(worker, 1, { timeout: 500 });
+  const resultWithPreload = await workerThreadExecute(worker, 1, {
+    timeout: 500
+  });
   expect(resultWithPreload).toBe(2);
   worker.terminate();
 });
 
 it('should call the worker when preloaded', async () => {
-  const worker = new Worker(
-    `${process.cwd()}/src/tests/worker-sample.mjs`
-  );
+  const worker = new Worker(`${process.cwd()}/src/tests/worker-sample.mjs`);
   worker.unref();
   const result = await workerThreadExecute(worker, 1, { timeout: 500 });
   expect(result).toBe(2);
@@ -39,9 +37,7 @@ it('should call the worker when preloaded', async () => {
 });
 
 it('should work without passing options', async () => {
-  const worker = new Worker(
-    `${process.cwd()}/src/tests/worker-sample.mjs`
-  );
+  const worker = new Worker(`${process.cwd()}/src/tests/worker-sample.mjs`);
   worker.unref();
   const result = await workerThreadExecute(worker);
   expect(result).toBeNaN();
