@@ -1,10 +1,10 @@
-import { Worker } from 'worker_threads';
+import { Worker, WorkerOptions } from 'worker_threads';
 import { defaultOptions } from './defaults';
 import { Options } from './models';
 
 export function workerThreadExecute<T>(
   workerPathOrInstance: string | Worker,
-  workerData: unknown = undefined,
+  payload: unknown = undefined,
   _options: Partial<Options> = {},
   workerOptions: WorkerOptions = {}
 ): Promise<T> {
@@ -15,14 +15,11 @@ export function workerThreadExecute<T>(
     };
     let worker: string | Worker;
     if (typeof workerPathOrInstance === 'string') {
-      worker = new Worker(workerPathOrInstance, {
-        workerData,
-        ...workerOptions
-      });
+      worker = new Worker(workerPathOrInstance, workerOptions);
     } else {
       worker = workerPathOrInstance;
-      worker.postMessage(workerData);
     }
+    worker.postMessage(payload);
     if (options.unref) {
       worker.unref();
     }

@@ -25,9 +25,11 @@ console.log(myExpensiveFunction);
 My worker:
 ```js
 const { parentPort, workerData } = require('worker_threads');
-// Do some expensive stuff
-myOutput = workerData.map((item) => item * 2);
-parentPort.postMessage(myOutput);
+parentPort.on('message', (input) => {
+  // Do some expensive stuff
+  myOutput = input.map((item) => item * 2);
+  parentPort.postMessage(myOutput);
+});
 ```
 
 ## Advanced usage - Preloading
@@ -56,9 +58,7 @@ parentPort.on('message', (input) => {
 
 The workerThreadExecute function takes two arguments:
 - `workerPathOrInstance`(_required_): Either a path to a worker file or a preloaded worker instance.  
-- `workerData`(_optional_): The input to be passed to the worker. Please be aware the input will work differently depending on the type of the worker.  
-  - If the worker is a preloaded worker, the input will be passed to the worker as a message.  
-  - If the worker is a path to a worker file, the input will be passed to the worker as a parameter available using the `workerData` property of the `worker_threads` module.
+- `payload`(_optional_): The input to be passed to the worker. The input will be passed to the worker as a message.  
 - `options`(_optional_): An object containing the following properties:
   - `unref`: If set to `true`, the worker thread will be unref'd. Defaults to `false`.  
   - `timeout`: The timeout in milliseconds after which the worker will be terminated. Defaults to `0` (no timeout).
