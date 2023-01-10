@@ -1,3 +1,19 @@
+## 2.0.0 (2023-01-10)
+
+##### Chores
+
+*  some minor fix on Readme ([2fd7a8b1](https://github.com/Cadienvan/worker-spawner/commit/2fd7a8b192338ca5ed0a1a124ca3f7fe1f0aa723))
+*  lint and prettier ([251c5510](https://github.com/Cadienvan/worker-spawner/commit/251c55109d18d2c28b7766fb2ed7eccc3650be92))
+*  linting ([04f95d5f](https://github.com/Cadienvan/worker-spawner/commit/04f95d5f6efb8e9837085d359e1d469a35dc2576))
+
+##### New Features
+
+*  BC - payload (former workerData) now passed always as message ([e4054d30](https://github.com/Cadienvan/worker-spawner/commit/e4054d30e381e71bb45d2a495e2c53b2bedddb77))
+
+##### Other Changes
+
+*  payload (former workData) always passed as message ([92dc75d7](https://github.com/Cadienvan/worker-spawner/commit/92dc75d7a1b10cb8ed26884b4eea67f8406b89a6))
+
 ### 1.1.0 (2022-12-30)
 
 ##### Chores
