@@ -1,3 +1,10 @@
+#### 2.0.1 (2023-04-22)
+
+##### Continuous Integration
+
+*  Added Node 20 in ci test matrix ([b9ce75ee](https://github.com/Cadienvan/worker-spawner/commit/b9ce75ee63f48a0c725b48e70cb404efb4f84202))
+*  Added Node CI ([ea184833](https://github.com/Cadienvan/worker-spawner/commit/ea1848331c01376026993fa3ab9840b47997b492))
+
 ## 2.0.0 (2023-01-10)
 
 ##### Chores
