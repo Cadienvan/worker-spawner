@@ -2,7 +2,7 @@
   "name": "worker-spawner",
   "description": "A Worker Thread spawner for Node.js with a simple API.",
   "private": false,
-  "version": "2.0.0",
+  "version": "2.0.1",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
