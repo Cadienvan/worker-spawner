@@ -1,3 +1,9 @@
+#### 2.0.2 (2023-12-27)
+
+##### Chores
+
+*  update dependencies ([6463b14a](https://github.com/Cadienvan/worker-spawner/commit/6463b14aa0473f2694c234c4311718f8837befd9))
+
 #### 2.0.1 (2023-04-22)
 
 ##### Continuous Integration
